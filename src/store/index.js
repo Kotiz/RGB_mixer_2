@@ -21,10 +21,11 @@ export default createStore({
       console.log('fdf', color)
       state.colors.push(color)
     },
-    DELETE_COLOR: (state, color) => {
-      console.log('che usunac', color)
-      console.log('2', state.colors)
-      return state.colors.splice(color.id)
+    DELETE_COLOR: (state, colorAsString) => {
+      const colorComponents = colorAsString.substr(4).slice(0, -1).split(/[, ]+/)
+      const colorIndex = state.colors.findIndex((color) => color.red === parseInt(colorComponents[0]) && color.green === parseInt(colorComponents[1]) && color.blue === parseInt(colorComponents[2]))
+
+      return state.colors.splice(colorIndex, 1)
     }
   },
   actions: {
