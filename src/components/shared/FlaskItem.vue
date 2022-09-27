@@ -22,12 +22,13 @@
           class="flask__btn flask__btn--center"
           icon="pi pi-trash"
           :movement="-0.5"
-          @click="animeFlask(); $emit('')" />
+          />
     </div>
 </template>
 <script>
 import ButtonItem from './ButtonItem.vue'
 import modalMixin from '@/mixin/modalMixin'
+import 'animate.css'
 
 export default {
   name: 'FlaskItem',
@@ -76,13 +77,11 @@ export default {
   },
   methods: {
     animeFlask () {
-      console.log(' ------------------------------------')
       console.log('animeFlask 1 ')
       this.$refs.anime.classList.add('zoomIn')
       console.log('animeFlask 2 ')
       setTimeout(() => {
         console.log('animeFlask 3 ')
-
         this.$refs.anime.classList.remove('zoomIn')
         console.log('animeFlask 4 ')
       }, 50)

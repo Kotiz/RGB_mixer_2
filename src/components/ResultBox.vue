@@ -54,7 +54,7 @@
           icon="pi pi-share-alt"
           class="refresh-btn" />
       </router-link>
-{{ mixtureEffectFill2(mixtures) }}
+{{ returnLinkRgb(mixtures) }}
       <router-link :to="'/MyColors'">
         <button-item
           @click="addColores(returnLinkRgb(mixtures))"
@@ -72,7 +72,7 @@ import ButtonItem from './shared/ButtonItem.vue'
 import FlaskItem from './shared/FlaskItem.vue'
 import RabarbarModalComponent from '@/components/modals/rabarbar.modal.vue'
 import modalMixin from '@/mixin/modalMixin'
-import { mapGetters, mapActions } from 'vuex'
+import { mapGetters, mapActions, mapMutations } from 'vuex'
 
 export default {
   name: 'ResultsBox',
@@ -85,6 +85,7 @@ export default {
   },
   methods: {
     ...mapActions(['addColores']),
+    ...mapMutations(['ADD_COLOR']),
 
     mixtureEffectFill2 (mixtures) {
       const [redCol, greenCol, blueCol] = mixtures.map(item => Math.floor(item.amount * 2.5))
