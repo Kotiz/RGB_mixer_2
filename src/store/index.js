@@ -22,7 +22,9 @@ export default createStore({
       state.colors.push(color)
     },
     DELETE_COLOR: (state, color) => {
-      return state.colors.splice(color)
+      console.log('che usunac', color)
+      console.log('2', state.colors)
+      return state.colors.splice(color.id)
     }
   },
   actions: {

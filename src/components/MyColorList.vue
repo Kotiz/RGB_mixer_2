@@ -1,10 +1,11 @@
 <template>
     <ul class="mixtures">
     <FlaskItem
-      v-for="color in colors" :key="color"
+      v-for="color in colors"
+      :key="color.id"
       :buttonsTrashVisible="true"
       :buttonsVisible="false"
-      @click="DELETE_COLOR()"
+      @click="DELETE_COLOR(color)"
       :size="8"
       :amount="100"
       :color="color"/></ul>
